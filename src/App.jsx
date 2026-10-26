@@ -5,6 +5,7 @@ import './components/Union.jsx'
 import Union from './components/Union.jsx'
 import Generations from './components/Generations.jsx'
 import Familiogram from './components/Familiogram';
+import FamilyHistory from "./components/FamilyHistory";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Union />
         <Generations />
         <Familiogram />
+        <FamilyHistory />
       </main>
 
       <footer>

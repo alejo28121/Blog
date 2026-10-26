@@ -1,0 +1,95 @@
+
+.family-history {
+    width: 100%;
+    padding: 100px 6%;
+    background: var(--bg-main, #f7f9ff);
+    color: var(--text-main, #0b1020);
+}
+
+.family-history__header {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.family-history__eyebrow {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--text-secondary, #3a4160);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.family-history__header h2 {
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+}
+
+.family-history__header p {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: var(--text-secondary, #3a4160);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.family-history__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: var(--text-main, #0b1020);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.family-history__button:hover {
+    opacity: 0.82;
+}
+
+.family-history__viewer {
+    width: 100%;
+    max-width: 1100px;
+    height: 750px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #e0e6f0;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.family-history__pdf {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .family-history {
+        padding: 70px 5%;
+    }
+
+    .family-history__viewer {
+        height: 600px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .family-history__viewer {
+        height: 500px;
+    }
+
+    .family-history__button {
+        width: 100%;
+    }
+}
