@@ -2,6 +2,7 @@
 import { motion } from 'motion/react'
 import { ArrowDownRight, Heart, MapPin } from 'lucide-react'
 import '../assets/styles/Origins.css'
+import originMontoya from '../assets/images/FamiliaMu.jpeg'
 
 const origins = [
     {
@@ -29,6 +30,7 @@ const origins = [
         'María Margarita Toro conoció a José Orlando Muñoz en una fiesta después de asistir a misa. Con el tiempo, aquel encuentro dio paso a su matrimonio, celebrado en Anserma en enero de 1976, y a una familia de cuatro hijos.',
         detail: '4 hijos: María Ruby, José Aldemar, Rodrigo y Dora Helena',
         imageLabel: 'Fotografía de la familia Muñoz Toro',
+        image: originMontoya,
     },
     ]
 
@@ -102,21 +104,11 @@ const origins = [
                 </div>
 
                 <div className="origin-card__visual">
-                    <div
-                    className="origin-card__image"
-                    role="img"
-                    aria-label={family.imageLabel}
-                    >
-                    <div className="origin-card__image-content">
-                        <span className="origin-card__image-icon">+</span>
-                        <span className="origin-card__image-label">
-                        {family.imageLabel}
-                        </span>
-                        <span className="origin-card__image-hint">
-                        Espacio reservado para tu fotografía
-                        </span>
-                    </div>
-                    </div>
+                    <img
+                        className="origin-card__image"
+                        src={family.image}
+                        alt={family.imageLabel}
+                    />
 
                     <span className="origin-card__image-index">
                     {family.number} — ARCHIVO FAMILIAR

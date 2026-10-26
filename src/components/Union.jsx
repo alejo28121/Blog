@@ -2,12 +2,13 @@
 import { motion } from 'motion/react'
 import {
     Heart,
-    CalendarDays,
     Users,
     ArrowDown,
     HeartHandshake
 } from 'lucide-react'
 import '../assets/styles/Union.css'
+import FamilyPhoto from '../assets/images/FamiliaMM.jpeg'
+import DoraPhoto from '../assets/images/DoraNelson.jpeg'
 
 const milestones = [
     {
@@ -78,7 +79,11 @@ const milestones = [
                 role="img"
                 aria-label="Espacio reservado para una fotografía de Nelson Montoya y Dora Helena Muñoz"
             >
-                <div className="union__photo-decoration" />
+                <img
+                    className="union__photo-image"
+                    src={DoraPhoto}
+                    alt="Nelson Montoya y Dora Helena Muñoz"
+                />
 
                 <div className="union__photo-content">
                 <span className="union__photo-heart">
@@ -162,17 +167,11 @@ const milestones = [
             </div>
 
             <div className="union__family-visual">
-                <div
-                className="union__family-photo"
-                role="img"
-                aria-label="Espacio reservado para una fotografía familiar de Nelson, Dora Helena y sus hijos"
-                >
-                <div className="union__family-photo-content">
-                    <Users size={29} strokeWidth={1.4} />
-                    <span>La familia</span>
-                    <small>Espacio para una fotografía familiar</small>
-                </div>
-                </div>
+                <img
+                className="union__family-image"
+                src={FamilyPhoto}
+                alt="Fotografía de Nelson Montoya y Dora Helena Muñoz con sus hijas Evelyn y Mariana Pauline, y Edier, un muchacho de 12 años que fue acogido en su hogar."
+                />
             </div>
             </motion.div>
 

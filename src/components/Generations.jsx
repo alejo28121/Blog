@@ -7,36 +7,42 @@ import {
     ArrowUpRight,
 } from 'lucide-react'
 import '../assets/styles/Generations.css'
+import EdierPhoto from '../assets/images/Edier.jpeg'
+import EvelynPhoto from '../assets/images/Evelyn.jpeg'
+import MarianaPhoto from '../assets/images/MarianaPauline.jpeg'
 
 const members = [
     {
         id: 1,
         name: 'Evelyn',
         description:
-        'En enero llegó Evelyn, la primera hija de Nelson y Dora Helena, dando inicio a una nueva etapa en la historia de la familia.',
+            'En enero llegó Evelyn, la primera hija de Nelson y Dora Helena, dando inicio a una nueva etapa en la historia de la familia.',
         icon: Sprout,
         color: 'blue',
         photoLabel: 'Fotografía de Evelyn',
+        photo: EvelynPhoto,
     },
     {
         id: 2,
         name: 'Mariana Pauline',
         description:
-        'Cinco años después nació Mariana Pauline, ampliando la familia y sumando nuevos recuerdos a su historia.',
+            'Cinco años después nació Mariana Pauline, ampliando la familia y sumando nuevos recuerdos a su historia.',
         icon: Heart,
         color: 'purple',
         photoLabel: 'Fotografía de Mariana Pauline',
+        photo: MarianaPhoto,
     },
     {
         id: 3,
         name: 'Edier',
         description:
-        'Más adelante, cuando vivían en la vereda México, Nelson y Dora Helena acogieron en su hogar a Edier, un muchacho de 12 años.',
+            'Más adelante, cuando vivían en la vereda México, Nelson y Dora Helena acogieron en su hogar a Edier, un muchacho de 12 años.',
         icon: Users,
         color: 'blue',
-        photoLabel: 'Fotografía familiar con Edier',
+        photoLabel: 'Fotografía de Edier',
+        photo: EdierPhoto,
     },
-    ]
+]
 
     const Generations = () => {
     return (
@@ -81,17 +87,13 @@ const members = [
                     }}
                 >
 
-                    <div
-                    className="generation-card__photo"
-                    role="img"
-                    aria-label={`Espacio reservado para ${member.photoLabel.toLowerCase()}`}
-                    >
-                    <div className="generation-card__photo-content">
-                        <span className="generation-card__photo-plus">
-                        +
-                        </span>
-                        <span>{member.photoLabel}</span>
-                    </div>
+                    <div className="generation-card__photo">
+                        <img
+                            className="generation-card__image"
+                            src={member.photo}
+                            alt={member.photoLabel}
+                            loading="lazy"
+                        />
                     </div>
 
                     <div className="generation-card__content">

@@ -1,6 +1,7 @@
 
 import { motion } from 'motion/react'
 import '../assets/styles/Home.css'
+import familyTwoImage from '../assets/images/AbuelaM.jpeg'
 
 const Home = () => {
     return (
@@ -93,23 +94,11 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
                 >
-                <div
-                    className="home__image-placeholder"
-                    role="img"
-                    aria-label="Espacio reservado para la segunda fotografía familiar"
-                >
-                    <div className="home__image-placeholder-content">
-                    <span className="home__image-icon" aria-hidden="true">
-                        +
-                    </span>
-                    <span className="home__image-label">
-                        Segunda fotografía
-                    </span>
-                    <span className="home__image-caption">
-                        Recuerdos que perduran
-                    </span>
-                    </div>
-                </div>
+                <img
+                    className="home__image"
+                    src={familyTwoImage}
+                    alt="Fotografía de nuestra familia"
+                />
                 </motion.div>
             </div>
             </motion.div>
