@@ -706,13 +706,6 @@ export default function Familiogram() {
             <Background color="#dce4f1" gap={22} size={1} />
 
             <Controls />
-
-            <MiniMap
-                nodeColor={(node) =>
-                node.data.symbol?.includes("circle") ? "#97D2FB" : "#d9c7ff"
-                }
-                maskColor="rgba(247, 249, 255, 0.7)"
-            />
             </ReactFlow>
         </div>
         <SymbolLegend />
