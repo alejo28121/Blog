@@ -1,0 +1,414 @@
+
+/* ============================================
+   SYNC — HISTORIA FAMILIAR
+   Estilos globales
+   ============================================ */
+
+/* 1. PALETA GLOBAL */
+:root {
+  color-scheme: light;
+
+  /* Marca */
+  --color-primary: #97D2FB;
+  --color-primary-light: #D5EBFD;
+  --color-primary-lighter: #EAF5FE;
+  --color-primary-dark: #2378B5;
+  --color-primary-darker: #205F8B;
+  --color-secondary: #1D4562;
+  --color-secondary-light: #3D6B8B;
+  --color-accent: #68B9F2;
+  --color-accent-strong: #3999DB;
+
+  /* Escala azul */
+  --blue-50: #F5FAFF;
+  --blue-100: #EAF5FE;
+  --blue-200: #D5EBFD;
+  --blue-300: #B9DDFC;
+  --blue-400: #97D2FB;
+  --blue-500: #68B9F2;
+  --blue-600: #3999DB;
+  --blue-700: #2378B5;
+  --blue-800: #205F8B;
+  --blue-900: #1D4562;
+  --blue-950: #102A3D;
+
+  /* Neutros */
+  --neutral-0: #FFFFFF;
+  --neutral-50: #F8FAFC;
+  --neutral-100: #F1F5F9;
+  --neutral-200: #E2E8F0;
+  --neutral-300: #CBD5E1;
+  --neutral-400: #94A3B8;
+  --neutral-500: #64748B;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1E293B;
+  --neutral-900: #0F172A;
+  --neutral-950: #020617;
+
+  /* Fondos */
+  --bg-main: #F8FBFE;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F0F7FC;
+  --bg-tertiary: #E5F2FC;
+  --bg-soft-blue: #EAF5FE;
+  --bg-accent: #97D2FB;
+  --bg-dark: #102A3D;
+  --bg-overlay: rgb(16 42 61 / 55%);
+
+  /* Superficies */
+  --surface-primary: #FFFFFF;
+  --surface-secondary: #F5FAFF;
+  --surface-elevated: #FFFFFF;
+  --surface-muted: #EAF5FE;
+  --surface-inverse: #102A3D;
+
+  /* Texto */
+  --text-primary: #172B3A;
+  --text-secondary: #43596A;
+  --text-muted: #718596;
+  --text-subtle: #91A3B1;
+  --text-inverse: #FFFFFF;
+  --text-link: #2378B5;
+  --text-link-hover: #205F8B;
+  --text-on-primary: #172B3A;
+
+  /* Bordes */
+  --border-light: #E8EFF5;
+  --border-default: #D5E2ED;
+  --border-strong: #AFC4D5;
+  --border-primary: #97D2FB;
+  --border-focus: #2378B5;
+
+  /* Botones */
+  --button-primary-bg: #2378B5;
+  --button-primary-hover: #205F8B;
+  --button-primary-active: #1D4562;
+  --button-primary-text: #FFFFFF;
+
+  --button-secondary-bg: #EAF5FE;
+  --button-secondary-hover: #D5EBFD;
+  --button-secondary-text: #205F8B;
+
+  /* Enlaces */
+  --link-color: #2378B5;
+  --link-hover: #205F8B;
+
+  /* Estados */
+  --state-success: #247A56;
+  --state-success-bg: #E7F6EE;
+  --state-warning: #94620C;
+  --state-warning-bg: #FFF5D9;
+  --state-error: #B83A46;
+  --state-error-bg: #FDECEF;
+  --state-info: #2378B5;
+  --state-info-bg: #EAF5FE;
+  --state-disabled-bg: #EEF2F5;
+  --state-disabled-text: #91A0AC;
+
+  /* Sombras */
+  --shadow-xs: 0 1px 2px rgb(16 42 61 / 4%);
+  --shadow-sm: 0 2px 8px rgb(16 42 61 / 5%);
+  --shadow-md: 0 8px 24px rgb(16 42 61 / 8%);
+  --shadow-lg: 0 16px 40px rgb(16 42 61 / 12%);
+  --shadow-blue: 0 8px 28px rgb(57 153 219 / 18%);
+
+  /* Degradados */
+  --gradient-primary: linear-gradient(
+    135deg,
+    #97D2FB 0%,
+    #68B9F2 100%
+  );
+
+  --gradient-soft: linear-gradient(
+    180deg,
+    #F8FBFE 0%,
+    #EAF5FE 100%
+  );
+
+  --gradient-dark: linear-gradient(
+    135deg,
+    #102A3D 0%,
+    #205F8B 100%
+  );
+
+  /* 2. TIPOGRAFÍA */
+  --font-family-base: Inter, Arial, sans-serif;
+  --font-family-display: Inter, Arial, sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-5xl: clamp(3rem, 7vw, 6.5rem);
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.1;
+  --line-height-heading: 1.2;
+  --line-height-body: 1.7;
+
+  --letter-spacing-tight: -0.045em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.08em;
+
+  /* 3. ESPACIADO */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* 4. BORDES REDONDEADOS */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+  --radius-full: 9999px;
+
+  /* 5. CONTENEDORES */
+  --container-width: 1200px;
+  --container-width-wide: 1440px;
+  --container-padding: clamp(1.25rem, 5vw, 4rem);
+  --header-height: 80px;
+  --section-spacing: clamp(4rem, 9vw, 8rem);
+
+  /* 6. ANIMACIONES */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 650ms;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* 7. CAPAS */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+
+  /* 8. ANCHOS DE REFERENCIA */
+  --width-mobile: 480px;
+  --width-tablet: 768px;
+  --width-laptop: 1024px;
+  --width-desktop: 1280px;
+}
+
+/* ============================================
+   RESET
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================
+   ELEMENTOS GENERALES
+   ============================================ */
+
+#root {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-tight);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+  transition: color var(--duration-normal) var(--ease-standard);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="reset"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+img {
+  object-fit: cover;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+blockquote {
+  margin: 0;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 4px;
+}
+
+:target {
+  scroll-margin-top: 6rem;
+}
+
+/* Ocultar visualmente, mantener accesible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   PREFERENCIAS DE MOVIMIENTO
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVE GLOBAL
+   ============================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+    --section-spacing: 4rem;
+  }
+
+  html {
+    scroll-padding-top: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 60px;
+    --section-spacing: 3rem;
+  }
+
+  body {
+    font-size: 0.9375rem;
+  }
+}

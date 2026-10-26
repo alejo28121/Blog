@@ -1,0 +1,170 @@
+
+.navbar {
+    width: 100%;
+    min-height: 92px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    background: var(--bg-main);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--text-main);
+    flex-shrink: 0;
+}
+
+.navbar__brand-name {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+}
+
+.navbar__brand-detail {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+}
+
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.navbar__links a {
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.navbar__links a:hover {
+    color: var(--text-main);
+}
+
+.navbar__links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 1px;
+    background: var(--text-main);
+    transition: width 0.2s ease;
+}
+
+.navbar__links a:hover::after {
+    width: 100%;
+}
+
+.navbar__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 13px 18px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-main);
+    background: var(--bg-surface);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.navbar__button:hover {
+    background: var(--bg-soft);
+    border-color: var(--text-muted);
+}
+
+.navbar__button span {
+    font-size: 16px;
+    line-height: 1;
+}
+
+@media (max-width: 1000px) {
+    .navbar {
+        padding: 0 4%;
+        gap: 20px;
+    }
+
+    .navbar__links {
+        gap: 18px;
+    }
+
+    .navbar__links a {
+        font-size: 12px;
+    }
+
+    .navbar__brand-name {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        min-height: 78px;
+        flex-wrap: wrap;
+        padding: 18px 5%;
+        row-gap: 18px;
+    }
+
+    .navbar__links {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 24px;
+        overflow-x: auto;
+        padding-bottom: 3px;
+    }
+
+    .navbar__links a {
+        flex-shrink: 0;
+    }
+
+    .navbar__button {
+        padding: 11px 14px;
+        font-size: 11px;
+    }
+
+    .navbar__brand-detail {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar {
+        column-gap: 10px;
+    }
+
+    .navbar__brand-name {
+        font-size: 17px;
+    }
+
+    .navbar__brand-detail {
+        max-width: 180px;
+        line-height: 1.5;
+    }
+
+    .navbar__button {
+        gap: 6px;
+        padding: 10px 11px;
+    }
+
+    .navbar__links {
+        gap: 20px;
+    }
+}

@@ -1,0 +1,573 @@
+```css
+/* ========================================
+   SECCIÓN DEL FAMILIOGRAMA
+======================================== */
+
+.familiogram-section {
+  padding: 100px 6%;
+  background: var(--bg-soft, #f1f6ff);
+  color: var(--text-main, #0b1020);
+}
+
+.familiogram-section__header {
+  max-width: 760px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.familiogram-section__eyebrow {
+  color: #6320ee;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.familiogram-section__header h2 {
+  margin: 16px 0;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+
+.familiogram-section__header p {
+  max-width: 570px;
+  margin: 0 auto;
+  color: var(--text-secondary, #3a4160);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* ========================================
+   TABLERO DE REACT FLOW
+======================================== */
+
+.familiogram-board {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  overflow: hidden;
+  border: 1px solid #e4e9f5;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 16px 50px rgba(27, 48, 90, 0.05);
+}
+
+.familiogram-board .react-flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/* Capas internas de React Flow */
+
+.familiogram-board .react-flow__renderer {
+  overflow: visible;
+}
+
+.familiogram-board .react-flow__edges {
+  visibility: visible;
+  opacity: 1;
+}
+
+.familiogram-board .react-flow__edges svg {
+  width: auto !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+.familiogram-board .react-flow__edge {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ========================================
+   NODOS PERSONALES
+======================================== */
+
+.familiogram-board .react-flow__node-person {
+  width: 120px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.familiogram-board .react-flow__node-person.selected {
+  box-shadow: none;
+}
+
+.familiogram-person {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 120px;
+  overflow: visible;
+}
+
+/* ========================================
+   CONTENEDOR DEL SÍMBOLO Y CONEXIONES
+======================================== */
+
+.familiogram-symbol-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  overflow: visible;
+}
+
+.familiogram-symbol-wrapper .familiogram-symbol {
+  width: 58px;
+  height: 58px;
+}
+
+/* ========================================
+   SÍMBOLOS GENERALES
+======================================== */
+
+.familiogram-symbol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 58px;
+  height: 58px;
+  border: 2px solid #26334d;
+  background: #fff;
+}
+
+/* Símbolos circulares */
+
+.familiogram-symbol--circle,
+.familiogram-symbol--circle-x,
+.familiogram-symbol--circle-question {
+  border-radius: 50%;
+}
+
+/* ========================================
+   SÍMBOLOS CON UNA X
+======================================== */
+
+.familiogram-symbol--square-x::before,
+.familiogram-symbol--square-x::after,
+.familiogram-symbol--circle-x::before,
+.familiogram-symbol--circle-x::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76px;
+  height: 2px;
+  content: "";
+  background: #26334d;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.familiogram-symbol--square-x::before,
+.familiogram-symbol--circle-x::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.familiogram-symbol--square-x::after,
+.familiogram-symbol--circle-x::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ========================================
+   SÍMBOLO CON DIAGONAL SIMPLE
+======================================== */
+
+.familiogram-symbol--square-diagonal::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76px;
+  height: 2px;
+  content: "";
+  background: #26334d;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  pointer-events: none;
+}
+
+/* ========================================
+   SIGNOS DE INTERROGACIÓN SIMPLES
+======================================== */
+
+.familiogram-symbol--square-question span,
+.familiogram-symbol--circle-question span {
+  position: relative;
+  z-index: 1;
+  color: #26334d;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* ========================================
+   SÍMBOLO DESCONOCIDO:
+   CUADRADO + DIAGONAL + DOS SIGNOS ?
+======================================== */
+
+/*
+  Se utiliza el cuadro exterior de 58 × 58 px.
+  No se crea ningún cuadro interior.
+  La diagonal va de abajo a la izquierda
+  hacia arriba a la derecha.
+*/
+
+.familiogram-unknown-symbol {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid #26334d;
+  border-radius: 0;
+  background: #fff;
+}
+
+/* Diagonal: esquina inferior izquierda → superior derecha */
+
+.familiogram-unknown-symbol .diagonal-line {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 2px;
+  background: #26334d;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+/* Signos de interrogación */
+
+.familiogram-unknown-symbol .question-top,
+.familiogram-unknown-symbol .question-bottom {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 20px;
+  color: #26334d;
+  background: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Triángulo superior izquierdo */
+
+.familiogram-unknown-symbol .question-top {
+  top: 4px;
+  left: 4px;
+}
+
+/* Triángulo inferior derecho */
+
+.familiogram-unknown-symbol .question-bottom {
+  right: 4px;
+  bottom: 4px;
+}
+
+/* ========================================
+   PUNTOS DE CONEXIÓN
+======================================== */
+
+.familiogram-board
+  .familiogram-symbol-wrapper
+  .familiogram-handle {
+  position: absolute;
+  left: 50%;
+  z-index: 5;
+  width: 1px;
+  height: 1px;
+  min-width: 1px;
+  min-height: 1px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.familiogram-symbol-wrapper
+  .familiogram-handle[data-handleid="top"] {
+  top: 0;
+}
+
+.familiogram-symbol-wrapper
+  .familiogram-handle[data-handleid="bottom"] {
+  top: 58px;
+}
+
+/* ========================================
+   ETIQUETAS
+======================================== */
+
+.familiogram-person__label {
+  width: 120px;
+  min-height: 20px;
+  margin: 0;
+  color: #3a4160;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Etiqueta encima del símbolo */
+
+.familiogram-person__label.label-top {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 10;
+  width: max-content;
+  max-width: 180px;
+  min-height: 0;
+  transform: translateX(-50%);
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: break-word;
+  pointer-events: none;
+}
+
+/* Etiqueta a la derecha del símbolo */
+
+.familiogram-person__label.label-right {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  z-index: 10;
+  width: max-content;
+  max-width: 180px;
+  min-height: 0;
+  transform: translateY(-50%);
+  white-space: normal;
+  text-align: left;
+  overflow-wrap: break-word;
+  pointer-events: none;
+}
+/* Nombre a la izquierda del símbolo */
+.familiogram-person__label.label-left {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  width: max-content;
+  max-width: 180px;
+  min-height: 0;
+  transform: translateY(-50%);
+  white-space: normal;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ========================================
+   NODOS AUXILIARES INVISIBLES
+======================================== */
+
+.familiogram-board .react-flow__node-junction {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.familiogram-board
+  .react-flow__node-junction
+  .react-flow__handle {
+  width: 1px;
+  height: 1px;
+  min-width: 1px;
+  min-height: 1px;
+  border: none;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ========================================
+   LÍNEAS DE PARENTESCO
+======================================== */
+
+.familiogram-board .react-flow__edge-path {
+  stroke: #26334d !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 1 !important;
+  fill: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.familiogram-board
+  .react-flow__edge.selected
+  .react-flow__edge-path {
+  stroke: #6320ee !important;
+  stroke-width: 2.5px !important;
+}
+
+.familiogram-board .react-flow__connectionline {
+  stroke: #26334d;
+  stroke-width: 2px;
+}
+
+/* ========================================
+   FONDO
+======================================== */
+
+.familiogram-board .react-flow__background {
+  z-index: 0;
+}
+
+/* ========================================
+   CONTROLES DE ZOOM
+======================================== */
+
+.familiogram-board .react-flow__controls {
+  overflow: hidden;
+  border: 1px solid #e4e9f5;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.familiogram-board .react-flow__controls-button {
+  width: 30px;
+  height: 30px;
+  border-bottom: 1px solid #e4e9f5;
+  background: #fff;
+  fill: #26334d;
+}
+
+.familiogram-board .react-flow__controls-button:hover {
+  background: #f1f6ff;
+}
+
+/* ========================================
+   MINIMAPA
+======================================== */
+
+.familiogram-board .react-flow__minimap {
+  overflow: hidden;
+  border: 1px solid #e4e9f5;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* ========================================
+   LEYENDA
+======================================== */
+
+.familiogram-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 28px;
+  margin-top: 28px;
+  color: var(--text-secondary, #3a4160);
+  font-size: 0.82rem;
+}
+
+.familiogram-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.legend-square,
+.legend-circle {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #26334d;
+  background: #fff;
+}
+
+.legend-circle {
+  border-radius: 50%;
+}
+
+.legend-cross {
+  color: #26334d;
+  font-size: 22px;
+  font-style: normal;
+  line-height: 1;
+}
+
+.legend-diagonal {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 19px;
+  height: 1.5px;
+  background: #26334d;
+  transform: rotate(-45deg);
+}
+
+.legend-question {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #26334d;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* ========================================
+   RESPONSIVE: TABLETAS
+======================================== */
+
+@media (max-width: 720px) {
+  .familiogram-section {
+    padding: 72px 5%;
+  }
+
+  .familiogram-section__header {
+    margin-bottom: 30px;
+  }
+
+  .familiogram-board {
+    height: 520px;
+    border-radius: 18px;
+  }
+
+  .familiogram-legend {
+    justify-content: flex-start;
+    gap: 16px 20px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE: MÓVILES
+======================================== */
+
+@media (max-width: 420px) {
+  .familiogram-board {
+    height: 450px;
+  }
+
+  .familiogram-legend {
+    font-size: 0.76rem;
+  }
+}
+```

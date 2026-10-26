@@ -1,0 +1,610 @@
+
+/* =========================
+   UNION — SECCIÓN
+========================= */
+
+.union {
+  overflow: hidden;
+  padding: 110px 6% 100px;
+  background: var(--bg-main, #f7f9ff);
+}
+
+.union__inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.union__heading {
+  max-width: 760px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.union__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #6320ee;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.union__eyebrow::before,
+.union__eyebrow::after {
+  width: 22px;
+  height: 2px;
+  border-radius: 10px;
+  background: #97d2fb;
+  content: '';
+}
+
+.union__title {
+  margin: 25px 0 0;
+  color: var(--text-main, #0b1020);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.065em;
+}
+
+.union__title span {
+  color: #6320ee;
+}
+
+.union__description {
+  max-width: 620px;
+  margin: 25px auto 0;
+  color: var(--text-secondary, #3a4160);
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+/* =========================
+   COMPOSICIÓN DE LA PAREJA
+========================= */
+
+.union__couple {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 660px) 1fr;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 110px;
+}
+
+.union__family-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-main, #0b1020);
+  font-size: 0.87rem;
+  font-weight: 600;
+}
+
+.union__family-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.union__family-dot--blue {
+  background: #438fc7;
+}
+
+.union__family-dot--purple {
+  background: #6320ee;
+}
+
+.union__photo {
+  position: relative;
+  display: grid;
+  min-height: 430px;
+  aspect-ratio: 1.35;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid #d8c9ff;
+  border-radius: 24px;
+  background: #e9e0ff;
+}
+
+.union__photo::before {
+  position: absolute;
+  top: -130px;
+  left: -100px;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(99, 32, 238, 0.17);
+  border-radius: 50%;
+  content: '';
+}
+
+.union__photo::after {
+  position: absolute;
+  right: -80px;
+  bottom: -180px;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(99, 32, 238, 0.17);
+  border-radius: 50%;
+  content: '';
+}
+
+.union__photo-decoration {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(99, 32, 238, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.union__photo-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  padding: 25px;
+  text-align: center;
+}
+
+.union__photo-heart {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  color: #6320ee;
+}
+
+.union__photo-title {
+  color: #26144e;
+  font-size: clamp(1.25rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.union__photo-caption {
+  color: #5f5478;
+  font-size: 0.86rem;
+}
+
+.union__photo-index {
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  color: #5f5478;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.union__heart-center {
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 5px solid var(--bg-main, #f7f9ff);
+  border-radius: 50%;
+  background: #6320ee;
+  color: white;
+  transform: translateX(-50%);
+}
+
+/* =========================
+   CRONOLOGÍA
+========================= */
+
+.union__timeline-heading {
+  margin-bottom: 42px;
+  text-align: center;
+}
+
+.union__timeline-heading h3 {
+  margin: 17px 0 0;
+  color: var(--text-main, #0b1020);
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+}
+
+.union__timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 100px;
+}
+
+.union__timeline::before {
+  position: absolute;
+  top: 27px;
+  right: 16%;
+  left: 16%;
+  height: 2px;
+  background: linear-gradient(90deg, #97d2fb, #b9a0ff, #6320ee);
+  content: '';
+}
+
+.union__milestone {
+  position: relative;
+  z-index: 1;
+  padding: 0 22px 25px;
+  text-align: center;
+}
+
+.union__milestone-marker {
+  display: grid;
+  width: 55px;
+  height: 55px;
+  place-items: center;
+  margin: 0 auto 22px;
+  border: 5px solid var(--bg-main, #f7f9ff);
+  border-radius: 50%;
+}
+
+.union__milestone--blue .union__milestone-marker {
+  background: #cdeaff;
+  color: #267bb7;
+}
+
+.union__milestone--purple .union__milestone-marker {
+  background: #e4d8ff;
+  color: #6320ee;
+}
+
+.union__milestone-year {
+  color: #6320ee;
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.union__milestone h4 {
+  margin: 13px 0 10px;
+  color: var(--text-main, #0b1020);
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.union__milestone p {
+  max-width: 310px;
+  margin: 0 auto;
+  color: var(--text-secondary, #3a4160);
+  font-size: 0.91rem;
+  line-height: 1.8;
+}
+
+/* =========================
+   CRECIMIENTO DE LA FAMILIA
+========================= */
+
+.union__family {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: clamp(30px, 5vw, 72px);
+  padding: clamp(30px, 5vw, 65px);
+  border-radius: 28px;
+  background: #e7f3ff;
+}
+
+.union__family-content {
+  min-width: 0;
+}
+
+.union__family-kicker {
+  color: #267bb7;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.union__family-content h3 {
+  margin: 19px 0 0;
+  color: var(--text-main, #0b1020);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+}
+
+.union__family-content h3 span {
+  color: #6320ee;
+}
+
+.union__family-content p {
+  margin: 22px 0 0;
+  color: var(--text-secondary, #3a4160);
+  font-size: 0.97rem;
+  line-height: 1.9;
+}
+
+.union__family-visual {
+  min-width: 0;
+}
+
+.union__family-photo {
+  position: relative;
+  display: grid;
+  min-height: 320px;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(38, 123, 183, 0.12);
+  border-radius: 20px;
+  background: #c8e7ff;
+}
+
+.union__family-photo::before,
+.union__family-photo::after {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(38, 123, 183, 0.16);
+  border-radius: 50%;
+  content: '';
+}
+
+.union__family-photo::before {
+  top: -120px;
+  right: -80px;
+}
+
+.union__family-photo::after {
+  bottom: -140px;
+  left: -80px;
+}
+
+.union__family-photo-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 25px;
+  color: #214f75;
+  text-align: center;
+}
+
+.union__family-photo-content span {
+  color: var(--text-main, #0b1020);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.union__family-photo-content small {
+  color: #41647e;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   CIERRE
+========================= */
+
+.union__next {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  margin: 48px auto 0;
+  color: var(--text-main, #0b1020);
+  font-size: 0.91rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.union__next svg {
+  color: #6320ee;
+}
+
+.union__next:focus-visible {
+  outline: 3px solid #6320ee;
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 950px) {
+  .union {
+    padding: 85px 5%;
+  }
+
+  .union__couple {
+    grid-template-columns: 1fr minmax(0, 540px) 1fr;
+    gap: 12px;
+  }
+
+  .union__family-label {
+    font-size: 0.75rem;
+  }
+
+  .union__photo {
+    min-height: 350px;
+  }
+
+  .union__timeline {
+    gap: 12px;
+  }
+
+  .union__milestone {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .union__family {
+    gap: 30px;
+  }
+
+  .union__family-photo {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 700px) {
+  .union {
+    padding: 72px 5%;
+  }
+
+  .union__heading {
+    margin-bottom: 45px;
+  }
+
+  .union__title {
+    font-size: clamp(2.6rem, 10vw, 4rem);
+  }
+
+  .union__description {
+    font-size: 0.96rem;
+  }
+
+  .union__couple {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 75px;
+  }
+
+  .union__photo {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 300px;
+    aspect-ratio: 1.15;
+  }
+
+  .union__family-label {
+    grid-row: 2;
+    justify-content: center;
+    gap: 7px;
+    font-size: 0.76rem;
+  }
+
+  .union__heart-center {
+    bottom: 35px;
+  }
+
+  .union__timeline-heading {
+    margin-bottom: 32px;
+  }
+
+  .union__timeline {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 65px;
+  }
+
+  .union__timeline::before {
+    top: 25px;
+    bottom: 35px;
+    left: 27px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, #97d2fb, #b9a0ff, #6320ee);
+  }
+
+  .union__milestone {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    column-gap: 18px;
+    padding: 0;
+    text-align: left;
+  }
+
+  .union__milestone-marker {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin: 0;
+  }
+
+  .union__milestone-year,
+  .union__milestone h4,
+  .union__milestone p {
+    grid-column: 2;
+  }
+
+  .union__milestone-year {
+    align-self: end;
+    padding-top: 3px;
+  }
+
+  .union__milestone h4 {
+    margin: 8px 0;
+  }
+
+  .union__milestone p {
+    max-width: none;
+    margin: 0;
+  }
+
+  .union__family {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 27px;
+    border-radius: 22px;
+  }
+
+  .union__family-content h3 {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .union__family-photo {
+    min-height: 280px;
+    aspect-ratio: 1.2;
+  }
+
+  .union__next {
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 380px) {
+  .union__photo {
+    min-height: 250px;
+  }
+
+  .union__family-label {
+    font-size: 0.68rem;
+  }
+
+  .union__family {
+    padding: 21px;
+  }
+
+  .union__family-photo {
+    min-height: 230px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .union *,
+  .union *::before,
+  .union *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
