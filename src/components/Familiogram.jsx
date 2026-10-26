@@ -13,6 +13,7 @@ import { useCallback } from "react";
 
 import "@xyflow/react/dist/style.css";
 import "../assets/styles/Familiogram.css";
+import SymbolLegend from "./SymbolLegend";
 
 const initialNodes = [
     {
@@ -560,186 +561,161 @@ const initialEdges = [
 ];
 
 function JunctionNode() {
-  return (
-    <>
-      <Handle type="target" position={Position.Top} id="top" />
-      <Handle type="source" position={Position.Bottom} id="bottom" />
-      <Handle type="target" position={Position.Left} id="left" />
-      <Handle type="source" position={Position.Right} id="right" />
-    </>
-  );
+    return (
+        <>
+        <Handle type="target" position={Position.Top} id="top" />
+        <Handle type="source" position={Position.Bottom} id="bottom" />
+        <Handle type="target" position={Position.Left} id="left" />
+        <Handle type="source" position={Position.Right} id="right" />
+        </>
+    );
 }
 
 function PersonNode({ data }) {
-  const labelPosition = data.labelPosition || "bottom";
+    const labelPosition = data.labelPosition || "bottom";
 
-  return (
-    <div className="familiogram-person">
-      <div className="familiogram-symbol-wrapper">
-        {/* Conexiones del nodo */}
-        <Handle
-          type="target"
-          position={Position.Top}
-          id="top"
-          className="familiogram-handle"
-        />
+    return (
+        <div className="familiogram-person">
+        <div className="familiogram-symbol-wrapper">
+            {/* Conexiones del nodo */}
+            <Handle
+            type="target"
+            position={Position.Top}
+            id="top"
+            className="familiogram-handle"
+            />
 
-        <Handle
-          type="source"
-          position={Position.Right}
-          id="right"
-          className="familiogram-handle"
-        />
+            <Handle
+            type="source"
+            position={Position.Right}
+            id="right"
+            className="familiogram-handle"
+            />
 
-        <Handle
-          type="target"
-          position={Position.Left}
-          id="left"
-          className="familiogram-handle"
-        />
+            <Handle
+            type="target"
+            position={Position.Left}
+            id="left"
+            className="familiogram-handle"
+            />
 
-        <Handle
-          type="source"
-          position={Position.Bottom}
-          id="bottom"
-          className="familiogram-handle"
-        />
+            <Handle
+            type="source"
+            position={Position.Bottom}
+            id="bottom"
+            className="familiogram-handle"
+            />
 
-        {/* Símbolo de la persona */}
-        {data.symbol === "square-diagonal-question" ? (
-          <div className="familiogram-symbol familiogram-unknown-symbol">
-            <span className="question-top">?</span>
-            <span className="question-bottom">?</span>
-            <i className="diagonal-line" />
-          </div>
-        ) : (
-          <div
-            className={`familiogram-symbol familiogram-symbol--${data.symbol}`}
-          >
-            {data.symbol?.includes("question") && <span>?</span>}
-          </div>
-        )}
+            {/* Símbolo de la persona */}
+            {data.symbol === "square-diagonal-question" ? (
+            <div className="familiogram-symbol familiogram-unknown-symbol">
+                <span className="question-top">?</span>
+                <span className="question-bottom">?</span>
+                <i className="diagonal-line" />
+            </div>
+            ) : (
+            <div
+                className={`familiogram-symbol familiogram-symbol--${data.symbol}`}
+            >
+                {data.symbol?.includes("question") && <span>?</span>}
+            </div>
+            )}
 
-        {/* Nombre de la persona */}
-        {labelPosition === "top" && (
-          <div className="familiogram-person__label label-top">
-            {data.label || "\u00A0"}
-          </div>
-        )}
+            {/* Nombre de la persona */}
+            {labelPosition === "top" && (
+            <div className="familiogram-person__label label-top">
+                {data.label || "\u00A0"}
+            </div>
+            )}
 
-        {labelPosition === "right" && (
-          <div className="familiogram-person__label label-right">
-            {data.label || "\u00A0"}
-          </div>
-        )}
+            {labelPosition === "right" && (
+            <div className="familiogram-person__label label-right">
+                {data.label || "\u00A0"}
+            </div>
+            )}
 
-        {labelPosition === "left" && (
-          <div className="familiogram-person__label label-left">
-            {data.label || "\u00A0"}
-          </div>
-        )}
-      </div>
-
-      {/* Nombre debajo del símbolo */}
-      {labelPosition === "bottom" && (
-        <div className="familiogram-person__label">
-          {data.label || "\u00A0"}
+            {labelPosition === "left" && (
+            <div className="familiogram-person__label label-left">
+                {data.label || "\u00A0"}
+            </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+
+        {/* Nombre debajo del símbolo */}
+        {labelPosition === "bottom" && (
+            <div className="familiogram-person__label">
+            {data.label || "\u00A0"}
+            </div>
+        )}
+        </div>
+    );
 }
 
 
 const nodeTypes = {
-  person: PersonNode,
-  junction: JunctionNode,
+    person: PersonNode,
+    junction: JunctionNode,
 };
 
 export default function Familiogram() {
-  const [nodes, , onNodesChange] = useNodesState(initialNodes);
-  const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+    const [nodes, , onNodesChange] = useNodesState(initialNodes);
+    const [edges, , onEdgesChange] = useEdgesState(initialEdges);
 
-  const handleInit = useCallback((instance) => {
-    instance.fitView({ padding: 0.2 });
-  }, []);
+    const handleInit = useCallback((instance) => {
+        instance.fitView({ padding: 0.2 });
+    }, []);
 
-  return (
-    <section className="familiogram-section" id="familiograma">
-      <div className="familiogram-section__header">
-        <span className="familiogram-section__eyebrow">
-          NUESTRO ÁRBOL FAMILIAR
-        </span>
+    return (
+        <section className="familiogram-section" id="familiograma">
+        <div className="familiogram-section__header">
+            <span className="familiogram-section__eyebrow">
+            NUESTRO ÁRBOL FAMILIAR
+            </span>
 
-        <h2>El familiograma</h2>
+            <h2>El familiograma</h2>
 
-        <p>
-          Una representación de las personas, sus vínculos y las conexiones que
-          forman nuestra historia.
-        </p>
-      </div>
+            <p>
+            Una representación de las personas, sus vínculos y las conexiones que
+            forman nuestra historia.
+            </p>
+        </div>
 
-      <div className="familiogram-board">
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          nodeTypes={nodeTypes}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onInit={handleInit}
-          nodesDraggable
-          nodesConnectable={false}
-          elementsSelectable
-          minZoom={0.25}
-          maxZoom={2}
-          proOptions={{ hideAttribution: true }}
-          defaultEdgeOptions={{
-            type: "smoothstep",
-            style: {
-              stroke: "#26334d",
-              strokeWidth: 2,
-            },
-          }}
-        >
-          <Background color="#dce4f1" gap={22} size={1} />
+        <div className="familiogram-board">
+            <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            nodeTypes={nodeTypes}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            nodesDraggable={false}
+            onInit={handleInit}
+            nodesConnectable={false}
+            elementsSelectable
+            minZoom={0.25}
+            maxZoom={2}
+            fitView
+            proOptions={{ hideAttribution: true }}
+            defaultEdgeOptions={{
+                type: "smoothstep",
+                style: {
+                stroke: "#26334d",
+                strokeWidth: 2,
+                },
+            }}
+            >
+            <Background color="#dce4f1" gap={22} size={1} />
 
-          <Controls />
+            <Controls />
 
-          <MiniMap
-            nodeColor={(node) =>
-              node.data.symbol?.includes("circle") ? "#97D2FB" : "#d9c7ff"
-            }
-            maskColor="rgba(247, 249, 255, 0.7)"
-          />
-        </ReactFlow>
-      </div>
-
-      <div className="familiogram-legend">
-        <span>
-          <i className="legend-square" />
-          Cuadrado
-        </span>
-
-        <span>
-          <i className="legend-circle" />
-          Círculo
-        </span>
-
-        <span>
-          <i className="legend-cross">×</i>
-          Con X
-        </span>
-
-        <span>
-          <i className="legend-diagonal" />
-          Con diagonal
-        </span>
-
-        <span>
-          <i className="legend-question">?</i>
-          Información desconocida
-        </span>
-      </div>
-    </section>
-  );
+            <MiniMap
+                nodeColor={(node) =>
+                node.data.symbol?.includes("circle") ? "#97D2FB" : "#d9c7ff"
+                }
+                maskColor="rgba(247, 249, 255, 0.7)"
+            />
+            </ReactFlow>
+        </div>
+        <SymbolLegend />
+        </section>
+    );
 }
